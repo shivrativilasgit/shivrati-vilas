@@ -1,0 +1,27 @@
+<div class="intro-wrapper">
+    <nav class="navbar" [class.hide-logo]="isScrolled" [class.menu-open]="menuOpen">
+        <div class="logo">SHIVRATI VILAS</div>
+
+        <div class="hamburger" [class.open]="menuOpen" [class.hero]="isHero" [class.footer]="isFooter"
+            (click)="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+
+    <div class="overlay-slide" [class.active]="menuOpen">
+        <div class="overlay-content">
+            <a (click)="navigateTo('home')">Home</a>
+            <a (click)="navigateTo('about')">About</a>
+            <a (click)="navigateTo('gallery')">Gallery</a>
+            <a (click)="navigateTo('contact')">Contact</a>
+        </div>
+    </div>
+
+    <section class="intro-content">
+        <h3>Welcome to </h3>
+        <h2>Shivrati Vilas</h2>
+        <p>Experience Heritage and Serenity</p>
+
+    </section>
+</div>

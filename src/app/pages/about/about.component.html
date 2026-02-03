@@ -1,0 +1,87 @@
+﻿<section class="heritage-section">
+    <div class="section-header">
+        <h2>About Us</h2>
+        <span></span>
+    </div>
+
+    <div class="heritage-container">
+
+        <div class="heritage-text">
+            <h2>A Sanctuary Where Time Slows Down</h2>
+
+            <h4>
+                EXPERIENCE UDAIPUR’S CULTURE THROUGH CRAFT, CUISINE,
+                AND COMMUNITY
+            </h4>
+
+            <p>
+                Nestled amidst rolling hills and verdant landscapes, Shivrati Vilas is more than just a retreat—it's an
+                invitation to reconnect with nature's rhythm. Our boutique farmstay blends rustic authenticity with
+                thoughtful modern comforts.
+            </p>
+
+            <p>
+                Shivarti Vilas Himmat Bagh is a truly remarkable heritage property, steeped in the legacy of the noble
+                Mewar dynasty. This historic farmhouse has been lovingly restored and reimagined as a one-of-a-kind
+                farmstay, where heritage charm seamlessly meets contemporary comfort. Its distinctive colonial
+                architecture sets it apart from typical homestays in and around Udaipur, offering guests an experience
+                that is both elegant and timeless.
+            </p>
+
+
+        </div>
+
+        <div class="heritage-image"></div>
+
+    </div>
+    <div class="amenities">
+        <div class="section-header">
+            <h2>Our Amenities</h2>
+            <span></span>
+        </div>
+
+        <ul class="amenities-list">
+            <li><i class="fa-solid fa-wifi"></i> Free Wi-Fi</li>
+            <li><i class="fa-solid fa-car"></i> Parking</li>
+            <li><i class="fa-solid fa-leaf"></i> Organic Meals</li>
+            <li><i class="fa-solid fa-hot-tub-person"></i> Hot Water</li>
+            <li><i class="fa-solid fa-tv"></i> Smart TV</li>
+            <li><i class="fa-solid fa-mug-hot"></i> Tea & Coffee</li>
+            <li><i class="fa-solid fa-mountain"></i> Hill View</li>
+            <li><i class="fa-solid fa-broom"></i> Housekeeping</li>
+            <li><i class="fa-solid fa-mug-hot"></i> Pantry </li>
+            <li><i class="fa-solid fa-person-swimming"></i> Swimming Pool</li>
+            <li><i class="fa-solid fa-tree"></i> Lawn </li>
+            <li><i class="fa-solid fa-paw"></i> Pet Freindly </li>
+        </ul>
+    </div>
+
+</section>
+
+<section class="reviews-section">
+
+    <div class="section-header">
+        <h2>Guest Reviews</h2>
+        <span></span>
+    </div>
+
+    <div class="carousel">
+
+        <button class="nav left" (click)="prev()">❮</button>
+        <div class="carousel-window" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+            (touchend)="onTouchEnd()">
+            <div class="carousel-track" [class.no-transition]="!isTransitioning"
+                [style.transform]="'translateX(-' + currentIndex * 100 + '%)'" (transitionend)="onTransitionEnd()">
+                <div class="review-card" *ngFor="let review of reviews">
+                    <span class="google">Google ★★★★★</span>
+                    <p>{{ review.text }}</p>
+                    <strong>{{ review.name }}</strong>
+                    <small>{{ review.time }}</small>
+                </div>
+            </div>
+        </div>
+
+        <button class="nav right" (click)="next()">❯</button>
+
+    </div>
+</section>

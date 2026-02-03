@@ -1,0 +1,28 @@
+<section class="gallery-section">
+    <div class="page-top">
+        <button class="back-btn" (click)="goBack()">← Back</button>
+    </div>
+    <div class="section-header">
+        <h2>Gallery</h2>
+        <p>Our heritage moments</p>
+    </div>
+
+    <div class="gallery-grid full-gallery">
+        <div class="gallery-item" *ngFor="let img of images; let i = index" (click)="openLightbox(i)">
+            <img [src]="img.src" [alt]="img.alt" />
+        </div>
+    </div>
+
+    <div class="lightbox" *ngIf="lightboxOpen">
+        <div class="backdrop" (click)="closeLightbox()"></div>
+
+        <div class="lightbox-content">
+            <button class="nav prev" (click)="prev()">‹</button>
+
+            <img [src]="images[currentIndex].src" [alt]="images[currentIndex].alt" />
+
+            <button class="nav next" (click)="next()">›</button>
+            <span class="close" (click)="closeLightbox()">✕</span>
+        </div>
+    </div>
+</section>

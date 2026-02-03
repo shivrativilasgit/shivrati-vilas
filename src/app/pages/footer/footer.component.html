@@ -1,0 +1,36 @@
+<footer class="site-footer">
+
+    <div class="footer-grid">
+
+        <div class="footer-about">
+            <img src="assets/images/logo.jpg" alt="Shivrati Vilas Logo" class="footer-logo" />
+            <h3>Shivrati Vilas</h3>
+            <p>
+                A boutique countryside retreat where rustic charm meets refined comfort.
+                Escape the ordinary and embrace nature’s tranquility.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a (click)="scrollTo('about')">About</a></li>
+                <li><a (click)="scrollTo('gallery')">Gallery</a></li>
+                <li><a (click)="scrollTo('contact')">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-map">
+            <h3>Location</h3>
+            <iframe src="https://www.google.com/maps?q=Shivrati%20Vilas%20Udaipur&output=embed" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © {{ currentYear }} Shivrati Vilas. All rights reserved.
+    </div>
+
+</footer>

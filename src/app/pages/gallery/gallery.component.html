@@ -1,0 +1,70 @@
+<section class="gallery-section">
+
+    <div class="section-header">
+        <h2>Gallery</h2>
+        <span></span>
+        <h4>A glimpse into our heritage retreat</h4>
+    </div>
+
+    <!-- DESKTOP GRID -->
+    <div class="gallery-grid">
+
+        <div class="gallery-item item-a">
+            <img [src]="images[0].src" />
+        </div>
+
+        <div class="gallery-item item-b">
+            <img [src]="images[1].src" />
+        </div>
+
+        <div class="gallery-item item-c">
+            <img [src]="images[2].src" />
+        </div>
+
+        <div class="gallery-item item-d">
+            <img [src]="images[3].src" />
+        </div>
+
+        <div class="gallery-item item-e">
+            <img [src]="images[4].src" />
+        </div>
+
+        <div class="gallery-item item-f">
+            <img [src]="images[5].src" />
+        </div>
+
+        <div class="gallery-item item-more" (click)="goToGalleryPage()">
+            <img [src]="images[6].src" />
+            <div class="more-overlay">
+                <span>+{{ remainingCount }}</span>
+                <p>View Gallery</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MOBILE CAROUSEL -->
+    <div class="gallery-carousel" #carousel (scroll)="onCarouselScroll(carousel)">
+        <div class="carousel-track">
+            <div class="carousel-item  first-item" *ngFor="let img of infiniteImages ;let i = index"
+                (click)="openLightbox(img)">
+                <img [src]="img.src" [alt]="img.alt || 'Gallery image'" />
+                <span *ngIf="i === 0 && showTapHint" class="tap-ring"></span>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div class="lightbox" *ngIf="selectedImage" (click)="closeLightbox()">
+    <!-- IMAGE WRAPPER -->
+    <img [src]="selectedImage.src" (click)="$event.stopPropagation()" (touchstart)="onTouchStart($event)"
+        (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd()" />
+
+    <!-- CLOSE -->
+    <button class="close-btn" (click)="closeLightbox($event)">✕</button>
+
+    <!-- NAV -->
+    <button class="nav-btn prev" (click)="prevImage($event)">‹</button>
+    <button class="nav-btn next" (click)="nextImage($event)">›</button>
+</div>

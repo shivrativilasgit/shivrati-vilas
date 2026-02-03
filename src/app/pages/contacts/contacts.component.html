@@ -1,0 +1,114 @@
+<section class="contact-section">
+
+    <div class="section-header">
+        <h2>Contact Us</h2>
+        <span></span>
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-details">
+
+            <h3>Get in Touch</h3>
+
+            <div class="detail">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <span class="label">Phone</span>
+                    <a href="tel:+919660401592">+91 96604 01592</a>
+                </div>
+            </div>
+
+            <div class="detail">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <span class="label">mail</span>
+                    <a href="mailto:shivrativilas@gmail.com">
+                        shivrativilas&#64;gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="detail">
+                <i class="fa-brands fa-instagram"></i>
+                <div>
+                    <span class="label">Instagram</span>
+                    <a href="https://instagram.com/shivrati_vilas" target="_blank">
+                        &#64;shivrati_vilas
+                    </a>
+                </div>
+            </div>
+
+            <div class="detail">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div>
+                    <span class="label">WhatsApp</span>
+                    <a [href]="whatsAppLink" target="_blank">
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="detail">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <span class="label">Location</span>
+                    <span class="text">
+                        Jaisamand Rd, Titrdi, Sector 9, Udaipur, Rajasthan ,
+                        India
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <form class="contact-form" (ngSubmit)="generateWhatsAppLink()">
+
+            <h3>Send a Message</h3>
+
+            <div class="field">
+                <label>Your Name</label>
+                <input type="text" [(ngModel)]="contact.name" name="name" required />
+            </div>
+
+            <div class="field">
+                <label>Email</label>
+                <input type="email" [(ngModel)]="contact.email" name="email" required />
+            </div>
+
+            <div class="field">
+                <label>Phone Number</label>
+                <input type="tel" [(ngModel)]="contact.phone" name="phone" required />
+            </div>
+
+            <div class="field select-field">
+                <label>Number of Rooms</label>
+                <select [(ngModel)]="contact.rooms" name="rooms" (change)="onRoomChange()" required>
+                    <option *ngFor="let r of [].constructor(maxRooms); let i = index" [value]="i + 1">
+                        {{ i + 1 }} Room{{ i + 1 > 1 ? 's' : '' }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Number of Guests</label>
+                <input type="number" [(ngModel)]="contact.persons" name="persons" [min]="minPersons" [max]="maxPersons"
+                    (input)="onPersonsChange()" required />
+                <small class="hint">
+                    Max {{ maxPersons }} guests for {{ contact.rooms }}
+                    room{{ contact.rooms > 1 ? 's' : '' }}
+                </small>
+            </div>
+
+            <div class="field">
+                <label>Your Message</label>
+                <textarea rows="4" [(ngModel)]="contact.message" name="message" required></textarea>
+            </div>
+
+            <button type="submit">Send via WhatsApp</button>
+
+        </form>
+
+    </div>
+
+</section>

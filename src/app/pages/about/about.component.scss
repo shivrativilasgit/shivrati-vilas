@@ -1,0 +1,313 @@
+.heritage-section {
+  padding: 5rem 8%;
+  background-color: #f2f0ed;
+  font-family: var(--font-family-heading);
+}
+
+.heritage-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.heritage-text {
+  flex: 1;
+  
+
+  h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    color: var(--quaternary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  h4 {
+    font-size: 0.9rem;
+    font-family: var(--font-family-base);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  p {
+    font-size: 1rem;
+    text-align: justify;
+    font-family: var(--font-family-base);
+    line-height: 1.8;
+    color: var(--primary-text-color);
+    margin-bottom: 1.2rem;
+    max-width: 90%;
+  }
+}
+
+.heritage-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 2.5rem;
+  background-color: var(--secondary-color);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--quaternary-color);
+  }
+}
+
+.heritage-image {
+  flex: 1;
+  min-height: 480px;
+  background: url('/assets/images/about-us-02.png') no-repeat center;
+  background-size: cover;
+  border-radius: 4px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .heritage-section {
+    padding: 3.5rem 8%;
+    background-color: #f2f0ed;
+    font-family: var(--font-family-heading);
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .heritage-container {
+    flex-direction: column;
+  }
+
+  .heritage-text {
+    text-align: center;
+  }
+
+  .heritage-text h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heritage-text h4 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heritage-text p {
+   text-align: center;     /* OR change to 'center' if you prefer */
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  
+
+  .heritage-image {
+    width: 100%;
+    min-height: 350px;
+  }
+}
+
+.section-header {
+  font-family: var(--font-family-heading);
+  text-align: center;
+  margin-bottom: 4rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--primary-text-color);
+    letter-spacing: 1px;
+  }
+
+  span {
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--secondary-color);
+    margin: 1rem auto 0;
+  }
+}
+
+.amenities {
+  margin-top: 4rem;
+  text-align: center;
+
+  h3 {
+    font-size: 1.5rem;
+    color: var(--quaternary-color);
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+  }
+}
+
+.amenities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 900px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1.5rem;
+  column-gap: 2rem;
+  justify-items: center;
+  font-family: var(--font-family-base);
+
+  li {
+    font-size: 0.95rem;
+    color: var(--primary-text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+
+  i {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+  }
+}
+
+@media (max-width: 480px) {
+  .amenities-list {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+    row-gap: 1.2rem;
+    justify-items: left;
+  }
+
+  .amenities-list li {
+    justify-content: flex-start;
+  }
+}
+
+
+.reviews-section{
+   background-color: #f2f0ed;
+}
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ONLY THIS PART CLIPS */
+.carousel-window {
+  overflow: hidden;
+}
+
+/* TRACK */
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+
+
+.carousel-track.no-transition {
+  transition: none; // 🔥 magic
+}
+
+/* REVIEW CARD */
+.review-card {
+  min-width: 100%;
+  background: var(--primary-color-light);
+  padding: 2.2rem;
+  border-radius: 14px;
+  font-family: var(--font-family-base);
+  text-align: center;
+}
+
+.review-card p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 1.5rem 0;
+  }
+
+  .review-card strong {
+    margin-top: auto;               
+    font-size: 1rem;
+  }
+
+  .review-card small {
+    margin-top: 0.3rem;
+  }
+
+/* NAV BUTTONS */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5; /* 🔥 REQUIRED */
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* OUTSIDE THE BOX */
+.nav.left {
+  left: -28px;
+}
+
+.nav.right {
+  right: -28px;
+}
+
+/* MOBILE FIX */
+@media (max-width: 600px) {
+  .reviews-section {
+    background-color: #f2f0ed;
+    padding: 4rem 1.5rem 2rem;
+  }
+
+  .carousel {
+    margin: 2rem auto;
+  }
+
+  .review-card {
+    min-height: 320px;              /* ✅ allows comfortable reading */
+    padding: 2.2rem 1.8rem;         /* ✅ more vertical space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;        /* ✅ vertically balanced */
+  }
+
+  .review-card p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 1.5rem 0;
+  }
+
+  .review-card strong {
+    margin-top: auto;               /* ✅ pushes name to bottom nicely */
+    font-size: 1rem;
+  }
+
+  .review-card small {
+    margin-top: 0.3rem;
+  }
+
+  /* NAV BUTTONS – more breathing room */
+  .nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .nav.left {
+    left: -14px;
+  }
+
+  .nav.right {
+    right: -14px;
+  }
+}
