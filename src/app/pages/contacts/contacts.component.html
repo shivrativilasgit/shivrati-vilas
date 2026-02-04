@@ -81,6 +81,17 @@
                 <input type="tel" [(ngModel)]="contact.phone" name="phone" required />
             </div>
 
+            <div class="field">
+                <label>Check-in Date</label>
+                <input type="date" [(ngModel)]="contact.checkIn" name="checkIn" [min]="today"
+                    (change)="onCheckInChange()" required />
+            </div>
+
+            <div class="field">
+                <label>Check-out Date</label>
+                <input type="date" [(ngModel)]="contact.checkOut" name="checkOut" [min]="contact.checkIn" required />
+            </div>
+
             <div class="field select-field">
                 <label>Number of Rooms</label>
                 <select [(ngModel)]="contact.rooms" name="rooms" (change)="onRoomChange()" required>

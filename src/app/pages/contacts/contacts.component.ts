@@ -16,8 +16,10 @@ export class ContactsComponent {
     message: '',
     rooms: 1,
     persons: 1,
+    checkIn: '',
+    checkOut: '',
   };
-
+  today = new Date().toLocaleDateString('en-CA');
   maxRooms = 6;
   maxPersonsPerRoom = 3;
   whatsAppLink = 'https://wa.me/919660401592';
@@ -39,6 +41,11 @@ export class ContactsComponent {
       this.contact.persons = this.maxPersons;
     }
   }
+  onCheckInChange() {
+    if (this.contact.checkOut && this.contact.checkOut < this.contact.checkIn) {
+      this.contact.checkOut = this.contact.checkIn;
+    }
+  }
 
   onPersonsChange() {
     if (this.contact.persons < this.minPersons) {
@@ -56,12 +63,15 @@ Name: ${this.contact.name}
 Email: ${this.contact.email}
 Phone: ${this.contact.phone}
 
+Check-in: ${this.contact.checkIn}
+Check-out: ${this.contact.checkOut}
+
 Rooms: ${this.contact.rooms}
 Persons: ${this.contact.persons}
 
 Message:
 ${this.contact.message}
-    `.trim();
+  `.trim();
 
     const url = 'https://wa.me/919660401592?text=' + encodeURIComponent(text);
 
